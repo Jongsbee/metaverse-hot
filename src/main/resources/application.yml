@@ -6,9 +6,17 @@ spring:
     password: OngshimLoveA807
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    open-in-view: false
-    show-sql: true
+    #    database: mysql
+    #    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
+    open-in-view: true
     hibernate:
-      format_sql: true
-      ddl-auto: create
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+      jdbc:
+        time_zone: Asia/Seoul
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  #      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
