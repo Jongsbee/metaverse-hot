@@ -93,3 +93,26 @@
     - Login - 로그인 시 유저 정보 가져오기 [GET]
     - duplicate check - 닉네임 및 이메일 중복검사 [POST]
     - signup - 회원가입 시 닉네임과 firebase ID DB에 저장 [POST]
+
+
+
+     ## 2023.03.23
+
+
+### 1. 업무일지
+
+ - 주간 스크럼
+   - 파트별 담당업무 회고 및 병목현상 해결
+     - 종섭 : UI 에 투입
+ - 팀장미팅
+
+### 2. 개발일지
+     
+ - 백앤드 서버 구축
+    - ERD 리팩토링
+    - 엔티티 구축 및 연동확인
+ - 로그인 및 기본 유저 API 제작
+    - Login - 로그인 시 유저 정보 가져오기 [GET]
+    - duplicate check - 닉네임 및 이메일 중복검사 [POST]
+    - signup - 회원가입 시 닉네임과 firebase ID DB에 저장 [POST]
+ - UI 구조 확인 및 개인공부
