@@ -8,18 +8,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "Member")
+@Table(name = "LOG")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Member extends BaseEntity {
+public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    // member와 1:1 매핑
+    @OneToOne
+    @JoinColumn(nullable = false, name = "member_id")
+    private Member member;
+    @Column(nullable = false, name = "event_code")
+    private String eventCode;
     @Column(nullable = false)
-    private String nickname;
-    @Column(nullable = false, name = "firebase_id")
-    private String firebaseId;
+    private Integer amount;
 }

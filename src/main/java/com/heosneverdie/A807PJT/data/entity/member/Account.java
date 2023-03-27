@@ -1,6 +1,5 @@
 package com.heosneverdie.A807PJT.data.entity.member;
 
-import com.heosneverdie.A807PJT.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,18 +7,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "Member")
+@Table(name = "Account")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Member extends BaseEntity {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    // member와 1:1 매핑
+    @OneToOne
+    @JoinColumn(nullable = false, name = "member_id")
+    private Member member;
     @Column(nullable = false)
-    private String nickname;
-    @Column(nullable = false, name = "firebase_id")
-    private String firebaseId;
+    private int exp;
+    @Column(nullable = false)
+    private int coin;
 }
