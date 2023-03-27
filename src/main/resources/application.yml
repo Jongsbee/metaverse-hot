@@ -5,6 +5,9 @@ spring:
     username: AHeos8Never0Die7
     password: OngshimLoveA807
 
+server:
+  port: 8200
+
   jpa:
     #    database: mysql
     #    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
