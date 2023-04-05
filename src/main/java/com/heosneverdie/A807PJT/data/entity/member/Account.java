@@ -18,9 +18,8 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // member와 1:1 매핑
-    @OneToOne
-    @JoinColumn(nullable = false, name = "member_id")
-    private Member member;
+    @Column(nullable = false, name = "member_id")
+    private Long memberId;
     @Column(nullable = false)
     private int exp;
     @Column(nullable = false)

@@ -14,12 +14,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Log {
+public class Log extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // member와 1:1 매핑
-    @OneToOne
+
+    @ManyToOne
     @JoinColumn(nullable = false, name = "member_id")
     private Member member;
     @Column(nullable = false, name = "event_code")

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "Member")
 @Entity
@@ -22,4 +23,8 @@ public class Member extends BaseEntity {
     private String nickname;
     @Column(nullable = false, name = "firebase_id")
     private String firebaseId;
+    @OneToOne
+    private Classes classes;
+    @OneToOne
+    private Account account;
 }

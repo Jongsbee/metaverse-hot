@@ -7,23 +7,26 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Table(name = "CLASS")
+@Table(name = "CLASSES")
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Class {
+public class Classes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     // member와 1:1 매핑
-    @OneToOne
-    @JoinColumn(nullable = false, name = "member_id")
-    private Member member;
+    @Column(nullable = false, name = "member_id")
+    private Long memberId;
     @Column(nullable = false, name = "warrior")
     private boolean isWarriorUnlocked;
     @Column(nullable = false, name = "archer")
     private boolean isArcherUnlocked;
+    @Column(nullable = false, name = "hammer")
+    private boolean isHammerUnlocked;
+    @Column(nullable = false, name = "poor")
+    private boolean isPoorUnlocked;
 }
