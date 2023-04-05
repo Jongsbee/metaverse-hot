@@ -4,10 +4,6 @@ spring:
     url: jdbc:mysql://j8a807.p.ssafy.io:3306/msg?serverTimezone=UTC&characterEncoding=UTF-8
     username: AHeos8Never0Die7
     password: OngshimLoveA807
-
-server:
-  port: 8200
-
   jpa:
     #    database: mysql
     #    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
@@ -23,3 +19,6 @@ server:
     properties:
       hibernate.format_sql: true
   #      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+server:
+  port: 8200
