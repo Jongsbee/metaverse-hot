@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -19,14 +20,15 @@ public class Classes {
     private Long id;
 
     // member와 1:1 매핑
-    @Column(nullable = false, name = "member_id")
-    private Long memberId;
+    @OneToOne
+    @JoinColumn(nullable = false, name = "member_id")
+    private Member member;
     @Column(nullable = false, name = "warrior")
-    private boolean isWarriorUnlocked;
+    private Boolean isWarriorUnlocked;
     @Column(nullable = false, name = "archer")
-    private boolean isArcherUnlocked;
+    private Boolean isArcherUnlocked;
     @Column(nullable = false, name = "hammer")
-    private boolean isHammerUnlocked;
+    private Boolean isHammerUnlocked;
     @Column(nullable = false, name = "poor")
-    private boolean isPoorUnlocked;
+    private Boolean isPoorUnlocked;
 }

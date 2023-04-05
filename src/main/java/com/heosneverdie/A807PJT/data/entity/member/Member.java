@@ -23,8 +23,16 @@ public class Member extends BaseEntity {
     private String nickname;
     @Column(nullable = false, name = "firebase_id")
     private String firebaseId;
-    @OneToOne
+    @OneToOne(mappedBy = "member")
     private Classes classes;
-    @OneToOne
+    @OneToOne(mappedBy = "member")
     private Account account;
+    
+    public void updateClasses(Classes classes) {
+        this.classes = classes;
+    }
+
+    public void updateAccount(Account account) {
+        this.account = account;
+    }
 }
