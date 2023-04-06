@@ -27,12 +27,21 @@ public class Member extends BaseEntity {
     private Classes classes;
     @OneToOne(mappedBy = "member")
     private Account account;
+
+    @OneToOne(mappedBy = "member")
+    private Coupon coupon;
     
     public void updateClasses(Classes classes) {
         this.classes = classes;
     }
-
     public void updateAccount(Account account) {
         this.account = account;
     }
+
+    public void updateCoupon(Coupon coupon) {
+        this.coupon = coupon;
+    }
+
+
+
 }

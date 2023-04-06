@@ -1,6 +1,8 @@
 package com.heosneverdie.A807PJT.controller;
 
 import com.heosneverdie.A807PJT.common.dto.ResponseDTO;
+import com.heosneverdie.A807PJT.data.dto.request.RequestCouponDto;
+import com.heosneverdie.A807PJT.data.dto.request.RequestExpCoinDto;
 import com.heosneverdie.A807PJT.data.dto.request.RequestSignUpDto;
 import com.heosneverdie.A807PJT.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -37,9 +39,33 @@ public class MemberController {
     }
 
     // 3. 유저의 정보를 가져오는 api
-    @GetMapping({"info"})
-    public ResponseEntity<ResponseDTO> getUserInfo(@RequestParam String nickname) {
-        memberService.getUserInfo(nickname);
+    @GetMapping({"info/{nickname}"})
+    public ResponseEntity<ResponseDTO> getUserInfo(@PathVariable String nickname) {
+
+        responseDTO = new ResponseDTO("유저 정보 가져오기 성공!","",HttpStatus.OK,memberService.getUserInfo(nickname));
+
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+    // 4. 쿠폰입력
+
+    @PostMapping({"coupon"})
+    public ResponseEntity<ResponseDTO> validCoupon(@RequestBody RequestCouponDto requestCouponDto) {
+
+        memberService.getCouponReward(requestCouponDto);
+        responseDTO = new ResponseDTO("쿠폰 적용이 완료되었습니다!","",HttpStatus.OK,null);
+
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+    // 5. 경험치 및
+
+    @PostMapping({"addExpCoin"})
+    public ResponseEntity<ResponseDTO> addExpCoin(@RequestBody RequestExpCoinDto requestExpCoinDto) {
+
+        memberService.updateExpCoin(requestExpCoinDto);
+
+        responseDTO = new ResponseDTO("정상적으로 반영되었습니다!","",HttpStatus.OK,null);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 

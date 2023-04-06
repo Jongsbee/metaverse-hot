@@ -31,4 +31,11 @@ public class Classes {
     private Boolean isHammerUnlocked;
     @Column(nullable = false, name = "poor")
     private Boolean isPoorUnlocked;
+
+    public void updateHammer() {
+        this.isHammerUnlocked = true;
+    }
+    public void updateDeveloper() {
+        this.isPoorUnlocked = true;
+    }
 }

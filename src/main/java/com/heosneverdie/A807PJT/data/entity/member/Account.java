@@ -26,4 +26,9 @@ public class Account {
     private int exp;
     @Column(nullable = false)
     private int coin;
+
+    public void updateExpAndCoin(int exp, int coin) {
+        this.exp += exp;
+        this.coin += coin;
+    }
 }
