@@ -130,6 +130,8 @@ public class MemberServiceImpl implements MemberService {
             memberRepository.save(member);
         }
 
+        String couponString = requestCouponDto.getCouponString().replaceAll(" ", "");
+        System.out.println("Coupon string: '" + couponString + "'");
 
         // 2.
         switch (requestCouponDto.getCouponString()) {
