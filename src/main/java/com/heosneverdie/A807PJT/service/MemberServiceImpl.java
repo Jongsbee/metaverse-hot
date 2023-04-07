@@ -135,7 +135,7 @@ public class MemberServiceImpl implements MemberService {
 
         // 2.
         switch (requestCouponDto.getCouponString()) {
-            case "포톤의신해석" :
+            case "포톤갓정해석" :
                 if(member.getCoupon().getIsCoupon1()) {
                     System.out.println("이미 등록된 쿠폰");
                     throw new MemberException(MemberExceptionType.ALREADY_USED_COUPON);
@@ -148,7 +148,7 @@ public class MemberServiceImpl implements MemberService {
                     memberRepository.save(member);
                 }
                 break;
-            case "알약은약차차":
+            case "YAKCHACHA!":
                 if(member.getCoupon().getIsCoupon2()) {
                     System.out.println("이미 등록된 쿠폰");
                     throw new MemberException(MemberExceptionType.ALREADY_USED_COUPON);
