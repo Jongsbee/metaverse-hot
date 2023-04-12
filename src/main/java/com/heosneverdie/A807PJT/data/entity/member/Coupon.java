@@ -42,4 +42,7 @@ public class Coupon {
     public void updateCoupon2() {
         this.isCoupon2 = true;
     }
+    public void updateCoupon3() {
+        this.isCoupon3 = true;
+    }
 }

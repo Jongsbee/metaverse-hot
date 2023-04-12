@@ -159,6 +159,18 @@ public class MemberServiceImpl implements MemberService {
                     memberRepository.save(member);
                     }
                 break;
+            case "3000만큼사랑해!":
+                if(member.getCoupon().getIsCoupon3()) {
+                    System.out.println("이미 등록된 쿠폰");
+                    throw new MemberException(MemberExceptionType.ALREADY_USED_COUPON);
+                }else {
+                    System.out.println("경험치 3000 증정 완료!");
+                    member.getAccount().updateExpAndCoin(3000,0);
+                    // 알약이 버프
+                    member.getCoupon().updateCoupon3();
+                    memberRepository.save(member);
+                }
+                break;
             default :
                 throw new MemberException(MemberExceptionType.INVALID_COUPON);
         }
