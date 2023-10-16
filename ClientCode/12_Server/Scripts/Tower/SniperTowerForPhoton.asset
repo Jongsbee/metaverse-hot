@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: SniperTowerForPhoton
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 175466955405957371, guid: ad6e728ccc720b54085623e67b6ef767,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 175466955405957371, guid: ad6e728ccc720b54085623e67b6ef767, type: 3}
+    Damage: 99999
+    rate: 40
+    range: -1
+    cost: 0
+    isParticle: 1
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 5804154397615275740, guid: 11efa3103eb1e03418644f57bf567e79,
+      type: 3}
+    FireSound:
+    - {fileID: 8300000, guid: 7db5620d284caa24fb3356567997dc8e, type: 3}
+    HitSound:
+    - {fileID: 8300000, guid: 7db5620d284caa24fb3356567997dc8e, type: 3}

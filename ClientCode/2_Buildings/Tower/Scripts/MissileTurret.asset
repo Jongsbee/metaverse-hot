@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: MissileTurret
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 350395162714193125, guid: 96dd8950b2a561c4b9f0844cce5709ef,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 350395162714193125, guid: 96dd8950b2a561c4b9f0844cce5709ef, type: 3}
+    Damage: 50
+    rate: 12
+    range: 120
+    cost: 0
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 1374693194890512, guid: d8414a5e62be04d48904fe7b551b0cc8, type: 3}
+    missileUp: 50
+    missileWaitSecond: 5
+    missileSpeed: 100
+    hitEffect: {fileID: 7239408069682771288, guid: 61fcd8c81266bf8419e50c7a9fca0c30,
+      type: 3}
+    FireSound:
+    - {fileID: 8300000, guid: ce02cc583b9d84102a12a156e90ca692, type: 3}
+    HitSound:
+    - {fileID: 8300000, guid: 8f0306e74cd83f34e9807abce18ae48e, type: 3}

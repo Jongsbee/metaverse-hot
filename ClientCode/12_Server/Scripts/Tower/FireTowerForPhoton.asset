@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: FireTowerForPhoton
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 6621514810840641666, guid: 3771c8a046fc8704ebc61d5acdb53984,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 6621514810840641666, guid: 3771c8a046fc8704ebc61d5acdb53984,
+      type: 3}
+    Damage: 60
+    rate: 7
+    range: 70
+    cost: 100
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 6027012637847507823, guid: fd98c3e0b8b39d34bb8415a56f433f2c,
+      type: 3}
+    missileUp: 30
+    missileWaitSecond: 0
+    missileSpeed: 50
+    hitEffect: {fileID: 0}
+    FireSound:
+    - {fileID: 8300000, guid: fa7f7d23b8720ef49aa93dd702e109df, type: 3}
+    HitSound:
+    - {fileID: 8300000, guid: 8eaabae0dc2df484d8b90d577a6b638f, type: 3}
+  - Prefab: {fileID: 1286383218548459431, guid: d2c6ac91eecbe90429d54bfce74aee79,
+      type: 3}
+    Damage: 75
+    rate: 6
+    range: 100
+    cost: 200
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 6027012637847507823, guid: fd98c3e0b8b39d34bb8415a56f433f2c,
+      type: 3}
+    missileUp: 30
+    missileWaitSecond: 0
+    missileSpeed: 60
+    hitEffect: {fileID: 0}
+    FireSound: []
+    HitSound: []
+  - Prefab: {fileID: 6017897722388203714, guid: a6c772b3a2d8df4409c4b9ebbddd2566,
+      type: 3}
+    Damage: 90
+    rate: 5
+    range: 120
+    cost: 600
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 6027012637847507823, guid: fd98c3e0b8b39d34bb8415a56f433f2c,
+      type: 3}
+    missileUp: 40
+    missileWaitSecond: 0
+    missileSpeed: 70
+    hitEffect: {fileID: 0}
+    FireSound: []
+    HitSound: []

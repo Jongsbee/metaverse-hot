@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: LaserCanon
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 8889765800355688168, guid: 8f7a079d831a05b4b9d5080a9ea5a9a4,
+    type: 3}
+  TowerSound: {fileID: 8300000, guid: 307ee2060ebc0ba4f8c55d48a664217b, type: 3}
+  weapon:
+  - Prefab: {fileID: 8889765800355688168, guid: 8f7a079d831a05b4b9d5080a9ea5a9a4,
+      type: 3}
+    Damage: 7
+    rate: 0.2
+    range: 10000
+    cost: 0
+    isParticle: 1
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 1
+    LaserRate: 5
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 8161942417590462681, guid: e1b25a96c51a5c4409d40e8f6403b24d,
+      type: 3}
+    FireSound: []
+    HitSound: []

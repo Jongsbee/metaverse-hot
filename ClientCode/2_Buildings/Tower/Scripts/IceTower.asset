@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: IceTower
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 5602294575269227299, guid: 7a93bedadc669af4083a5c4f4b4ee061,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 5602294575269227299, guid: 7a93bedadc669af4083a5c4f4b4ee061,
+      type: 3}
+    Damage: 0.2
+    rate: 0
+    range: 30
+    cost: 150
+    isParticle: 0
+    isDeBuff: 1
+    isZangPan: 1
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 7517170642317603008, guid: 87bd3803c1389ba46831cbfab3a9446d,
+      type: 3}
+    FireSound:
+    - {fileID: 8300000, guid: cecff6dbafcf97c4c88c858380695f5c, type: 3}
+    HitSound: []
+  - Prefab: {fileID: 386914449548775791, guid: 999358eb5a93afa45a366e0a03b141ae, type: 3}
+    Damage: 0.4
+    rate: 0
+    range: 50
+    cost: 350
+    isParticle: 0
+    isDeBuff: 1
+    isZangPan: 1
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 7517170642317603008, guid: 87bd3803c1389ba46831cbfab3a9446d,
+      type: 3}
+    FireSound:
+    - {fileID: 8300000, guid: cecff6dbafcf97c4c88c858380695f5c, type: 3}
+    HitSound: []
+  - Prefab: {fileID: 6142553789647345545, guid: 3fd56668cc5eafb4fb8a5ef580e03836,
+      type: 3}
+    Damage: 0.6
+    rate: 0
+    range: 70
+    cost: 750
+    isParticle: 0
+    isDeBuff: 1
+    isZangPan: 1
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 7517170642317603008, guid: 87bd3803c1389ba46831cbfab3a9446d,
+      type: 3}
+    FireSound: []
+    HitSound: []

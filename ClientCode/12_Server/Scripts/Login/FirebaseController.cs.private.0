@@ -1,0 +1,359 @@
+using UnityEngine;
+using TMPro;
+using System;
+using UnityEngine.SceneManagement;
+
+public class FirebaseController : MonoBehaviour
+{
+    public GameObject loginPanel, signupPanel, profilePanel, forgetPasswordPanel, notificationPanel;
+
+    public TMP_InputField loginEmail, loginPassword, signupEmail, signupPassword, signupConfirmPassword, signupUserName,forgetPasswordEmail;
+
+    public TMP_Text notification_Title_Text, notification_Message_Text, profileUserName_Text, profileUserEmail_Text;
+
+    bool isSignIn = false;
+
+    void Start()
+    {
+        Debug.Log("Start() method called");
+        OpenLoginPanel();
+    }
+
+    public void OpenLoginPanel() // 1. 로그인 패널 열기
+    {
+        Debug.Log("OpenLoginPanel() method called");
+        loginPanel.SetActive(true);
+        signupPanel.SetActive(false);
+        profilePanel.SetActive(false);
+        forgetPasswordPanel.SetActive(false);
+    }
+    public void OpenSignUpPanel() // 2. 회원가입 창 열기
+    {
+        Debug.Log("OpenSignUpPanel() method called");
+        loginPanel.SetActive(false);
+        signupPanel.SetActive(true);
+        profilePanel.SetActive(false);
+        forgetPasswordPanel.SetActive(false);
+
+    }
+
+    public void LoginUser()
+    {
+        if(string.IsNullOrEmpty(loginEmail.text) && string.IsNullOrEmpty(loginPassword.text))
+        {
+            showNotificationMessage("Error", "입력 값을 모두 채워주세요");
+            return;
+        }
+
+        Debug.Log("LoginUser() method called");
+        SignInUser(loginEmail.text,loginPassword.text);
+    }
+
+    public void SignUpUser() // 유효성 검사
+    {
+        if(string.IsNullOrEmpty(signupEmail.text) && string.IsNullOrEmpty(signupPassword.text)&& string.IsNullOrEmpty(signupConfirmPassword.text) && string.IsNullOrEmpty(signupUserName.text))
+        {
+            showNotificationMessage("Error", "Fields Empty! Please Input Details In All Fields");
+            return;
+        }
+
+        //Do SignUp
+        Debug.Log("SignUpUser() method called");
+
+        // 중복 닉네임 검사
+        Debug.Log("중복 닉네임 검사 진행");
+        string url = MyAPIClient.BACKEND_URL + "api/member/duplicate/" + signupUserName.text; // 여기까진 잘 간다.
+        Debug.Log(url);
+        
+        StartCoroutine(MyAPIClient.instance.getRequest(url, dupleSuccess, dupleError)); // geturl 로 전송
+       
+    }
+
+    public void forgetPassword()
+    {
+        if (string.IsNullOrEmpty(forgetPasswordEmail.text)) 
+        {
+            showNotificationMessage("Error", "Fields Empty! Please Input Details In All Fields");
+            return;
+        }
+        Debug.Log("forgetPassword() method called");
+        forgetPasswordSubmit(forgetPasswordEmail.text);
+    }
+
+    private void showNotificationMessage(string title, string message)
+    {
+        notification_Title_Text.text = "" + title;
+        notification_Message_Text.text = "" + message;
+
+        notificationPanel.SetActive(true);
+    }
+
+    public void CloseNotification_Panel()
+    {
+        notification_Title_Text.text = "";
+        notification_Message_Text.text = "";
+        notificationPanel.SetActive(false);
+    }
+
+    public void LogOut()
+    {
+        Debug.Log("LogOut() method called");
+        auth.SignOut();
+        profileUserEmail_Text.text = "";
+        profileUserName_Text.text = "";
+        OpenLoginPanel();
+    }
+
+    // 회원가입
+    void CreateUser(string email, string password, string Username)
+    {
+        Debug.Log("CreateUser() method called");
+        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+
+                foreach (Exception exception in task.Exception.Flatten().InnerExceptions) {
+                    Firebase.FirebaseException firebaseEx = exception as Firebase.FirebaseException;
+                    if (firebaseEx != null)
+                    {
+                        var errorCode = (AuthError)firebaseEx.ErrorCode;
+                        showNotificationMessage("Error", GetErrorMessage(errorCode));
+                    }
+                }
+
+                return;
+            }
+
+            // Firebase user has been created. - 유저생성 성공
+            Firebase.Auth.FirebaseUser newUser = task.Result;
+            Debug.LogFormat("Firebase user created successfully: {0} ({1})",
+                newUser.DisplayName, newUser.UserId);
+
+            showNotificationMessage("Success", "Your ID : " + newUser.Email + "\nYour Nickname : " + Username);
+
+            // url 및 data 설정
+                string url = MyAPIClient.BACKEND_URL + "api/member/signUp";
+                string data = "{\"firebaseId\":\"" + newUser.UserId + "\", \"nickname\":\"" + Username + "\"}";
+
+                // 서버에 해당 값을 전송
+                StartCoroutine(MyAPIClient.instance.PostRequest(url, data, signInSuccess, signInError));
+            // notification_Message_Text.fontSize = 12;
+            UpdateUserProfile(Username);    
+        });
+    }
+
+    public void SignInUser(string email, string password) // 로그인
+    {
+        Debug.Log("SignInUser() method called");
+        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task => {
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Debug.LogError("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
+                foreach (Exception exception in task.Exception.Flatten().InnerExceptions)
+                {
+                    Firebase.FirebaseException firebaseEx = exception as Firebase.FirebaseException;
+                    if (firebaseEx != null)
+                    {
+                        var errorCode = (AuthError)firebaseEx.ErrorCode;
+                        showNotificationMessage("Error", GetErrorMessage(errorCode));
+                    }
+                }
+                return;
+            }
+            Firebase.Auth.FirebaseUser newUser = task.Result;
+            Debug.LogFormat("User signed in successfully: {0} ({1})",
+                newUser.DisplayName, newUser.UserId);
+
+            SceneManager.LoadScene("LobbySceneMain");
+
+            //profileUserName_Text.text= ""+newUser.DisplayName;
+            //profileUserEmail_Text.text= ""+newUser.Email;
+            //OpenProfilePanel();
+        });
+    }
+
+    void InitializeFirebase()
+    {
+        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
+        auth.StateChanged += AuthStateChanged;
+        AuthStateChanged(this, null);
+    }
+
+    void AuthStateChanged(object sender, System.EventArgs eventArgs)
+    {
+        if (auth.CurrentUser != user)
+        {
+            bool signedIn = user != auth.CurrentUser && auth.CurrentUser != null;
+            if (!signedIn && user != null)
+            {
+                Debug.Log("Signed out " + user.UserId);
+            }
+            user = auth.CurrentUser;
+            if (signedIn)
+            {
+                Debug.Log("Signed in " + user.UserId);
+                isSignIn= true;
+            }
+        }
+    }
+
+    void OnDestroy()
+    {
+        auth.StateChanged -= AuthStateChanged;
+        auth = null;
+    }
+    void UpdateUserProfile(string UserName)
+    {
+        Firebase.Auth.FirebaseUser user = auth.CurrentUser;
+        if (user != null)
+        {
+            Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile
+            {
+                DisplayName = UserName,
+                PhotoUrl = new System.Uri("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU5fkFQwxyyq1CxPudMDEvwIg_xIxqRn8wWg&usqp=CAU"),
+            };
+            user.UpdateUserProfileAsync(profile).ContinueWith(task => {
+                if (task.IsCanceled)
+                {
+                    Debug.LogError("UpdateUserProfileAsync was canceled.");
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("UpdateUserProfileAsync encountered an error: " + task.Exception);
+                    return;
+                }
+
+                Debug.Log("User profile updated successfully.");
+
+                //showNotificationMessage("Alert", "Account Successfully Created");
+            });
+        }
+    }
+    bool isSigned = false;
+
+    void Update()
+    {
+        if (isSignIn)
+        {
+            if (!isSigned)
+            {
+                isSigned = true;
+                profileUserName_Text.text = "" + user.DisplayName;
+                profileUserEmail_Text.text = ""+user.Email;
+                //OpenProfilePanel();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            LoginUser();
+        }
+    }
+
+    private static string GetErrorMessage(AuthError errorCode)
+    {
+        var message = "";
+        switch (errorCode)
+        {
+            case AuthError.AccountExistsWithDifferentCredentials:
+                message = "Account Not Exist";
+                break;
+            case AuthError.MissingPassword:
+                message = "Missing Password";
+                break;
+            case AuthError.WeakPassword:
+                message = "Password So Weak";
+                break;
+            case AuthError.WrongPassword:
+                message = "Wrong Password";
+                break;
+            case AuthError.EmailAlreadyInUse:
+                message = "Your Email Already in Use";
+                break;
+            case AuthError.InvalidEmail:
+                message = "Your Email Invalid";
+                break;
+            case AuthError.MissingEmail:
+                message = "Your Email Missing";
+                break;
+            default:
+                message = "Invalid Error";
+                break;
+        }
+        return message;
+    }
+    void forgetPasswordSubmit(string forgetPasswordEmail)
+    {
+        auth.SendPasswordResetEmailAsync(forgetPasswordEmail).ContinueWithOnMainThread(task=>{
+            if (task.IsCanceled)
+            {
+                Debug.LogError("SendPasswordResetEmailAsync was canceled");
+            }
+
+            if (task.IsFaulted)
+            {
+                foreach (Exception exception in task.Exception.Flatten().InnerExceptions)
+                {
+                    Firebase.FirebaseException firebaseEx = exception as Firebase.FirebaseException;
+                    if (firebaseEx != null)
+                    {
+                        var errorCode = (AuthError)firebaseEx.ErrorCode;
+                        showNotificationMessage("Error", GetErrorMessage(errorCode));
+                    }
+
+                }
+            }
+            showNotificationMessage("Alert", "Successfully Send Email For Reset Password");
+
+        }
+        );
+    }
+    // API 통신이 성공하거나 실패했을 때 사용하는 메서드
+
+    // 회원가입 성공
+    private void signInSuccess(MyAPIClient.ResponseDTO data)
+    {
+        Debug.Log("Sign up successful: " + data);
+        Debug.Log(data.data);
+    }
+
+    // 회원가입 실패
+    private void signInError(MyAPIClient.ResponseDTO data)
+    {
+        Debug.LogError("Sign up error: ");
+    }
+
+    private void dupleSuccess(MyAPIClient.ResponseDTO data)
+    {
+
+        if (data.httpStatus.Equals("OK"))
+        {
+            Debug.Log("duple check success: ");
+            CreateUser(signupEmail.text, signupPassword.text, signupUserName.text);
+        }else
+        {
+            Debug.Log("duple check failed: ");
+            showNotificationMessage("Error :", " duplicated nickname");
+        }
+        
+    }
+
+    private void dupleError(MyAPIClient.ResponseDTO data)
+    {
+        Debug.LogError("duple check error: ");
+        showNotificationMessage("Error :", " API Connection Error");
+    }
+
+}

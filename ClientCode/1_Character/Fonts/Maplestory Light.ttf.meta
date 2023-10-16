@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 655b16cb3367ef7439849f2df1bde306
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Maplestory
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 26f7a69875e959740a947c41b7a717b5, type: 3}
+  - {fileID: 12800000, guid: f6289251a77c7ee4e9e8763b1b8be464, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

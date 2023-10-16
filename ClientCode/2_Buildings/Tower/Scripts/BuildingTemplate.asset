@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6907ecff887ef9846b72e746406d0962, type: 3}
+  m_Name: BuildingTemplate
+  m_EditorClassIdentifier: 
+  doneBuildSound: {fileID: 8300000, guid: 7a7cf624f89536a4fa8b3a847273698d, type: 3}
+  doneUpgradeSound: {fileID: 8300000, guid: 307ee2060ebc0ba4f8c55d48a664217b, type: 3}
+  doneBuild: {fileID: 198974120550216026, guid: c36845a7c0dd2344ea5b64c8ffce3ffc,
+    type: 3}
+  doneUpgrade: {fileID: 141433446842962268, guid: 0694c0d0742abd0428275a7989bca8e5,
+    type: 3}

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: CurseTower
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 8729720902896533289, guid: f8dc40e1b05bf844a823629052b52beb,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 8729720902896533289, guid: f8dc40e1b05bf844a823629052b52beb,
+      type: 3}
+    Damage: 0.2
+    rate: 0
+    range: 30
+    cost: 150
+    isParticle: 0
+    isDeBuff: 2
+    isZangPan: 2
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 198681264470032530, guid: b10f9989e1400dc4e93bd99fa20178c2,
+      type: 3}
+    FireSound:
+    - {fileID: 8300000, guid: 6e4417d85d1160e499fdeff792348652, type: 3}
+    HitSound: []
+  - Prefab: {fileID: 0}
+    Damage: 0.4
+    rate: 0
+    range: 50
+    cost: 350
+    isParticle: 0
+    isDeBuff: 2
+    isZangPan: 2
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 3781946149995631009, guid: 2af047a8f7a8e2d43bc4a318c8df7528,
+      type: 3}
+    FireSound: []
+    HitSound: []
+  - Prefab: {fileID: 0}
+    Damage: 0.6
+    rate: 0
+    range: 70
+    cost: 750
+    isParticle: 0
+    isDeBuff: 2
+    isZangPan: 2
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 3781946149995631009, guid: 2af047a8f7a8e2d43bc4a318c8df7528,
+      type: 3}
+    FireSound: []
+    HitSound: []

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: GunTower
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 1000010153274142, guid: 2652172d138981b4abc806ea8ec36564,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 1000013566905100, guid: b5ceca2fab4f06f49aa235f4f428275a, type: 3}
+    Damage: 5
+    rate: 0.25
+    range: 80
+    cost: 0
+    isParticle: 1
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 4021103657954561960, guid: 72f8af4277585e5428ed28dcdfc07bdb,
+      type: 3}
+    FireSound:
+    - {fileID: 8300000, guid: c9f108d7d17be14459791c0dd531e237, type: 3}
+    HitSound:
+    - {fileID: 0}
+  - Prefab: {fileID: 1000013227101710, guid: d9231829d3cedca409477c9327eb6425, type: 3}
+    Damage: 7
+    rate: 0.2
+    range: 80
+    cost: 100
+    isParticle: 1
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 7130715709782991302, guid: 5e19e34f1bb77564a8cc5af346bfa68c,
+      type: 3}
+    FireSound:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    HitSound:
+    - {fileID: 0}
+  - Prefab: {fileID: 1000012105359850, guid: 16e71322676cb6840a252ad4f7fc2d26, type: 3}
+    Damage: 8
+    rate: 0.08
+    range: 100
+    cost: 400
+    isParticle: 1
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 0}
+    missileUp: 0
+    missileWaitSecond: 0
+    missileSpeed: 0
+    hitEffect: {fileID: 7130715709782991302, guid: 5e19e34f1bb77564a8cc5af346bfa68c,
+      type: 3}
+    FireSound:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    HitSound:
+    - {fileID: 0}

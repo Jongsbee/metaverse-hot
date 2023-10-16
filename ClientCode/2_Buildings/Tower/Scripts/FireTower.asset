@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47b0de284fc0d54d80fb878ffeca7cc, type: 3}
+  m_Name: FireTower
+  m_EditorClassIdentifier: 
+  towerPrefab: {fileID: 5994176029770567409, guid: c14b303ed1f0e284b8d5b7faddb6dbb1,
+    type: 3}
+  weapon:
+  - Prefab: {fileID: 5994176029770567409, guid: c14b303ed1f0e284b8d5b7faddb6dbb1,
+      type: 3}
+    Damage: 40
+    rate: 6
+    range: 75
+    cost: 100
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 7641722786224840907, guid: 14c5da2a9c8b2c940beed8569ca4f1b0,
+      type: 3}
+    missileUp: 20
+    missileWaitSecond: 0
+    missileSpeed: 50
+    hitEffect: {fileID: 0}
+    FireSound:
+    - {fileID: 8300000, guid: fa7f7d23b8720ef49aa93dd702e109df, type: 3}
+    HitSound:
+    - {fileID: 8300000, guid: 8eaabae0dc2df484d8b90d577a6b638f, type: 3}
+  - Prefab: {fileID: 1286383218548459431, guid: d2c6ac91eecbe90429d54bfce74aee79,
+      type: 3}
+    Damage: 50
+    rate: 5
+    range: 85
+    cost: 400
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 7641722786224840907, guid: 14c5da2a9c8b2c940beed8569ca4f1b0,
+      type: 3}
+    missileUp: 20
+    missileWaitSecond: 0
+    missileSpeed: 50
+    hitEffect: {fileID: 688292300173547838, guid: 6e4ba4b11e7bc4a4b8e82695071f62e3,
+      type: 3}
+    FireSound: []
+    HitSound: []
+  - Prefab: {fileID: 6017897722388203714, guid: a6c772b3a2d8df4409c4b9ebbddd2566,
+      type: 3}
+    Damage: 85
+    rate: 4
+    range: 100
+    cost: 550
+    isParticle: 0
+    isDeBuff: 0
+    isZangPan: 0
+    isLaser: 0
+    LaserRate: 0
+    missile: {fileID: 7641722786224840907, guid: 14c5da2a9c8b2c940beed8569ca4f1b0,
+      type: 3}
+    missileUp: 20
+    missileWaitSecond: 0
+    missileSpeed: 60
+    hitEffect: {fileID: 688292300173547838, guid: 6e4ba4b11e7bc4a4b8e82695071f62e3,
+      type: 3}
+    FireSound: []
+    HitSound: []

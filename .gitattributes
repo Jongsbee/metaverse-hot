@@ -1,1 +1,2 @@
 ver4.2.zip filter=lfs diff=lfs merge=lfs -text
+히오쓰.zip filter=lfs diff=lfs merge=lfs -text

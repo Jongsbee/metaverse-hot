@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9253e413cf468ee42b7221cb443e5d3f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gm: {instanceID: 0}
+  - greenHP: {instanceID: 0}
+  - hpbar: {instanceID: 0}
+  - damageText: {fileID: 3703610177678399120, guid: 87d7fa884240a51438c7aba15f19f8fd,
+      type: 3}
+  - greenCircle: {fileID: 1831353635848910, guid: a13cff8ec79b87342860c980de86ec57,
+      type: 3}
+  - redCircle: {fileID: 1132443172065886, guid: e586749778ae10a43abf9d85b6acc911,
+      type: 3}
+  - Heal: {fileID: 1881552412633134, guid: c701949d52bcfb44396c4fa31ac9661b, type: 3}
+  - groundCrush: {fileID: 1159970587636746, guid: d54beff6be9f82647b36cca9a3426675,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
